@@ -8,9 +8,9 @@ public class Hands : MonoBehaviour
 {
     //Picking up and droping object
     public SteamVR_Action_Boolean grabAction = null;
-    //
+    //controller status
     public SteamVR_Behaviour_Pose pose = null;
-    //
+    //For attaching object to controller
     public FixedJoint joint = null;
 
     private CanInteract currentInteractable = null;
@@ -31,7 +31,7 @@ public class Hands : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //Grab
+        //PickUp
         if (grabAction.GetStateDown(pose.inputSource))
         {
             Debug.Log(pose.inputSource + "TriggerDown");
@@ -47,7 +47,7 @@ public class Hands : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (!other.gameObject.CompareTag("CanInteract"))
+        if (!other.gameObject.CompareTag("Interactable"))
             return;
         //making object CanInteract with controller.
         interactableObjects.Add(other.gameObject.GetComponent<CanInteract>());
