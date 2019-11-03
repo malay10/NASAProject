@@ -4,10 +4,12 @@ using UnityEngine;
 
 public class ObjectDetectionRaycast : MonoBehaviour
 {
+
+    private GameObject lastPanel;
     // Start is called before the first frame update
     void Start()
     {
-        
+        lastPanel = null;
     }
 
     // Update is called once per frame
@@ -23,13 +25,27 @@ public class ObjectDetectionRaycast : MonoBehaviour
         // Does the ray intersect any objects excluding the player layer
         if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, Mathf.Infinity, layerMask))
         {
+            
             Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.forward) * hit.distance, Color.yellow);
             Debug.Log("Did Hit " + hit.collider.name);
+
+            if (hit.collider.CompareTag("Interactable"))
+            {
+                hit.collider.gameObject.SendMessage("CallDisplay");
+                lastPanel = hit.collider.gameObject;
+            }
         }
         else
         {
             Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.forward) * 1000, Color.white);
             Debug.Log("Did not Hit");
+            if(lastPanel != null)
+            {
+                lastPanel.SendMessage("HideDisplay");
+                lastPanel = null;
+            }
+
+
         }
     }
 }

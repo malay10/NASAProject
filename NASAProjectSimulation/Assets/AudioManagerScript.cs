@@ -8,11 +8,15 @@ public class AudioManagerScript : MonoBehaviour
     private AudioSource audioSource;
     public AudioClip[] audioClips;
     private int index = 0;
+    [SerializeField]
+    private Animator anim;
+
 
     // Start is called before the first frame update
     void Start()
     {
         audioSource = GetComponent<AudioSource>();
+        anim = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -39,8 +43,10 @@ public class AudioManagerScript : MonoBehaviour
     {
         if (audioClips[index])
         {
+            anim.SetBool("Audio", true);
             audioSource.PlayOneShot(audioClips[index], 0.9f);//can scale audio
             yield return new WaitForSeconds(audioClips[index].length);
+            anim.SetBool("Audio", false);
         }
         else
         {

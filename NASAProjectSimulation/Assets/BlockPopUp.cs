@@ -19,6 +19,16 @@ public class BlockPopUp : MonoBehaviour
         
     }
 
+    public void CallDisplay()
+    {
+        Debug.Log("Setting True");
+        panel.SetActive(true);
+    }
+    public void HideDisplay()
+    {
+        panel.SetActive(false);
+    }
+
     private void OnCollisionEnter(Collision collision)
     {
         //Detect the collider
