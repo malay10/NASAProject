@@ -9,7 +9,7 @@ public class BlockPopUp : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        panel = GameObject.FindGameObjectWithTag("projectile");
+        panel = GameObject.FindGameObjectWithTag("DisplayInfo");
         panel.SetActive(false);
     }
 
@@ -21,7 +21,21 @@ public class BlockPopUp : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
+        //Detect the collider
         Debug.Log("Setting True");
         panel.SetActive(true);
+    }
+
+    private void OnCollisionExit(Collision collision)
+    {
+
+        Debug.Log("HIde the panel");
+        panel.SetActive(false);
+    }
+
+    IEnumerator Display()
+    {
+        yield return new WaitForSeconds(1);
+        //panel active
     }
 }
