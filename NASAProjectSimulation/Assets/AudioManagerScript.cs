@@ -2,11 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(AudioSource))]
 public class AudioManagerScript : MonoBehaviour
 {
     private AudioSource audioSource;
     public AudioClip[] audioClips;
-    private int index = -1;
+    private int index = 0;
 
     // Start is called before the first frame update
     void Start()
@@ -17,11 +18,20 @@ public class AudioManagerScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //can Detect
         if(Input.GetKeyDown(KeyCode.N))
         {
-            if (audioClips[index] && !audioSource.isPlaying)
+
+            if (audioClips.Length > index && !audioSource.isPlaying)
+            {
+                Debug.Log("Playing Clip " + index);
                 StartCoroutine(AudioInstruction(index++));
-            //index++;
+                //index++;
+            }
+            else
+            {
+                Debug.Log("Can't Do that, audio playing or no more clips");
+            }
         }
     }
 
