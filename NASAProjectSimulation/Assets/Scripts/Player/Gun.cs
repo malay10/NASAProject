@@ -60,11 +60,11 @@ public class Gun : MonoBehaviour
         {
             RotateToHit(gameObject, hit.point);
             SpawnVFX();
-            Target target = hit.transform.GetComponent<Target>();
-            if (target != null)
+            //Target target = hit.transform.GetComponent<Target>();
+           // if (target != null)
             {
                 //Debug.Log(hit.transform.name);
-                target.TakeDamage(damage);
+         //       target.TakeDamage(damage);
             }
         }
         else
