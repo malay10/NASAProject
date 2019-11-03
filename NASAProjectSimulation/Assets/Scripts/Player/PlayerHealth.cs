@@ -32,7 +32,7 @@ public class PlayerHealth : MonoBehaviour
         mouseLookX = this.GetComponentInChildren<MouseLook>();
 
         // Set the initial health of the player.
-        GameInfo.currentHealth = startingHealth;
+       // GameInfo.currentHealth = startingHealth;
     }
 
 
@@ -62,19 +62,19 @@ public class PlayerHealth : MonoBehaviour
         damaged = true;
 
         // Reduce the current health by the damage amount.
-        GameInfo.currentHealth -= amount;
+        //GameInfo.currentHealth -= amount;
 
         // Set the health bar's value to the current health.
-        healthSlider.value = GameInfo.currentHealth;
+        //healthSlider.value = GameInfo.currentHealth;
 
         // Play the hurt sound effect.
         //playerAudio.Play();
 
         // If the player has lost all it's health and the death flag hasn't been set yet...
-        if (GameInfo.currentHealth <= 0 && !GameInfo.IsDead)
+        //if (GameInfo.currentHealth <= 0 && !GameInfo.IsDead)
         {
             // ... it should die.
-            Death();
+          //  Death();
         }
     }
 
@@ -83,7 +83,7 @@ public class PlayerHealth : MonoBehaviour
     {
         //Debug.Log("Dead");
         // Set the death flag so this function won't be called again.
-        GameInfo.IsDead = true;
+       // GameInfo.IsDead = true;
 
         // Turn off any remaining shooting effects.
         //playerShooting.DisableEffects();
@@ -100,11 +100,11 @@ public class PlayerHealth : MonoBehaviour
         mouseLookX.enabled = false;
         mouseLookX.enabled = false;
         Time.timeScale = 0f;
-        GameInfo.IsDead = false;
-        GameInfo.currentScore = 0;
-        GameInfo.currentHealth = 100;
-        GameInfo.GameIsPaused = false;
-        GameInfo.LevelIteration = 1;
+       //GameInfo.IsDead = false;
+        //GameInfo.currentScore = 0;
+       // GameInfo.currentHealth = 100;
+       // GameInfo.GameIsPaused = false;
+       // GameInfo.LevelIteration = 1;
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
         SceneManager.LoadScene(0);

@@ -46,7 +46,7 @@ public class PlayerMovement : MonoBehaviour
             pauseMenu.gameObject.SetActive(true);
             playerMovement.speed = 0;
             playerLook.enabled = false;
-            GameInfo.GameIsPaused = true;
+         //   GameInfo.GameIsPaused = true;
         }
         else if (Input.GetButtonDown("Submit") && pauseMenu.enabled)
         {
@@ -55,7 +55,7 @@ public class PlayerMovement : MonoBehaviour
             pauseMenu.gameObject.SetActive(false);
             playerMovement.speed = 8;
             playerLook.enabled = true;
-            GameInfo.GameIsPaused = false;
+           // GameInfo.GameIsPaused = false;
         }
         else if(Input.GetButtonDown("Cancel") && pauseMenu.enabled)
         {
