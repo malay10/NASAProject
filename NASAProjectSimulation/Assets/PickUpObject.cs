@@ -30,7 +30,6 @@ public class PickUpObject : MonoBehaviour
         if (!CamMouseMovement.lookAround)
         {
             StartCoroutine(Rotate());
-
             this.GetComponent<BlockPopUp>().HideDisplay();
             objectPreview.SetActive(true);
             detailViewCam.SendMessage("GetObject", this.gameObject);
