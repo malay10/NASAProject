@@ -6,6 +6,7 @@ public class AvtarHUD : MonoBehaviour
 {
     [SerializeField]
     private Transform player;
+    
 
     // Start is called before the first frame update
     void Start()
@@ -22,4 +23,6 @@ public class AvtarHUD : MonoBehaviour
 
         //transform.rotation = Quaternion.Euler(90, player.eulerAngles.y, 0);
     }
+
+
 }

@@ -9,6 +9,8 @@ TagManager:
   - FxTemporaire
   - Interactable
   - DisplayInfo
+  - DetailView
+  - ObjectPreviewCanvas
   layers:
   - Default
   - TransparentFX
@@ -20,7 +22,7 @@ TagManager:
   - 
   - 
   - 
-  - 
+  - Hidden
   - 
   - 
   - 

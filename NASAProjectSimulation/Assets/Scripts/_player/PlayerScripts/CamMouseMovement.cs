@@ -10,6 +10,8 @@ public class CamMouseMovement : MonoBehaviour
     public float sensitivity = 5.0f;
     public float smoothing = 2.0f;
 
+    public static bool lookAround = true;
+
     GameObject character;
 
     // Start is called before the first frame update
@@ -21,8 +23,8 @@ public class CamMouseMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //if (!MenuUI.isPaused)
-        //{
+        if (lookAround)
+        {
             
             
                 //Getting rax axis for mouse movement
@@ -36,7 +38,7 @@ public class CamMouseMovement : MonoBehaviour
                 transform.localRotation = Quaternion.AngleAxis(-mouseLook.y, Vector3.right); //rotating around right
                 character.transform.localRotation = Quaternion.AngleAxis(mouseLook.x, character.transform.up);
             
-        //}
+        }
 
 
 

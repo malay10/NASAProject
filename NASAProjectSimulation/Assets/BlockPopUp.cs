@@ -48,4 +48,9 @@ public class BlockPopUp : MonoBehaviour
         yield return new WaitForSeconds(1);
         //panel active
     }
+
+    private void OnDestroy()
+    {
+    
+    }
 }

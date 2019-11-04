@@ -33,7 +33,19 @@ public class ObjectDetectionRaycast : MonoBehaviour
             {
                 hit.collider.gameObject.SendMessage("CallDisplay");
                 lastPanel = hit.collider.gameObject;
+                if (Input.GetKey(KeyCode.F))
+                {
+                    Debug.Log("CanInteract");
+                    hit.collider.gameObject.transform.parent = transform;
+                    CamMouseMovement.lookAround = false;
+                }
+                else if (Input.GetKey(KeyCode.G))
+                {
+                    hit.collider.gameObject.transform.parent = null;
+                    CamMouseMovement.lookAround = true;
+                }
             }
+            
         }
         else
         {
